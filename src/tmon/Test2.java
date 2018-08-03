@@ -39,9 +39,21 @@ public class Test2 {
 		return new String(arr);
 	}
 
+	public static String reverseString3(String src) {
+		char[] arr = new char[src.length()];
+		int idx = 0;
+		char[] chars = src.toCharArray();
+		for (int i = src.length()-1; i >= 0; i--) {
+			arr[idx] = chars[i];
+			idx++;
+		}
+		return new String(arr);
+	}
+
 	public static void main(String[] args) {
 		String source = "I am a boy.";
 		System.out.println(reverseString(source));
 		System.out.println(reverseString2(source));
+		System.out.println(reverseString3(source));
 	}
 }

@@ -17,6 +17,18 @@ import java.util.Stack;
 //
 //public static List<Stack<Integer>> doDo() {
 //final List<Integer> elements = Arrays.asList(9, 7, 6, 6, 4, 3, 4, 5, 3, 4, 3, 4, 1, 2);
+//  이곳에 구현하시오...
+// }
+//
+//public static void main(String... args) {
+//	List<Stack<Integer>> stackList = doDo();
+//	for (Stack<Integer> stack : stackList) {
+//	for (Integer element : stack) {
+//	System.out.print(element.toString() + " ");
+//	}
+//	System.out.println();
+//	}
+//	}
 public class Test1 {
 
 	public static List<Stack<Integer>> doDo() {
@@ -24,13 +36,13 @@ public class Test1 {
 		final List<Integer> elements = Arrays.asList(9, 7, 6, 6, 4, 3, 4, 5, 3, 4, 3, 4, 1, 2);
 
 		List<Integer> saved = new ArrayList<>();
-		List<Stack<Integer>> seperatedElements = new ArrayList<>();
+		List<Stack<Integer>> separatedElements = new ArrayList<>();
 		for (int i = 0; i < elements.size(); i++) {
 			int num = elements.get(i);
 			if (num >= MAX_SIZE) { // 입력된 값이 20보다 크거나 같다면
 				Stack stack = new Stack();
 				stack.push(num);
-				seperatedElements.add(stack);
+				separatedElements.add(stack);
 				saved.clear();
 				continue;
 			}
@@ -39,10 +51,8 @@ public class Test1 {
 			int total = savedSum + num;
 			if (total >= MAX_SIZE) { // 토탈 값이 20을 넘기면
 				Stack stack = new Stack();
-				saved.forEach(savedNum -> {
-					stack.push(savedNum);
-				});
-				seperatedElements.add(stack);
+				saved.forEach(stack::push);
+				separatedElements.add(stack);
 				saved.clear();
 			}
 			saved.add(num);
@@ -51,8 +61,8 @@ public class Test1 {
 		for (int i = 0; i < saved.size(); i++) {
 			stack.push(saved.get(i));
 		}
-		seperatedElements.add(stack);
-		return seperatedElements;
+		separatedElements.add(stack);
+		return separatedElements;
 	}
 
 	public static void main(String... args) {
