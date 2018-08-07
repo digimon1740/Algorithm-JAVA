@@ -8,19 +8,23 @@ public class Queue {
 
 	List<Integer> queue = new ArrayList<>();
 
-	private void enqueue(int i) {
+	public void enqueue(int i) {
 		queue.add(i);
 	}
 
-	private int dequeue() {
+	public int dequeue() {
 		if (queue.isEmpty()) {
 			throw new NoSuchElementException();
 		}
 		return queue.remove(0);
 	}
 
-	private boolean isEmpty() {
+	public boolean isEmpty() {
 		return queue.isEmpty();
+	}
+
+	public int size() {
+		return this.queue.size();
 	}
 
 	public static void main(String[] args) {
