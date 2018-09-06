@@ -33,8 +33,8 @@ public class Test1 {
 	private static final String LF = "\n";
 
 	private String getDataFromRecommendationApi() {
-		String data = "sports,s1,s2,s3\ngag,g1,g2\nfantasy,f1,f2,f3";
-		//String data = "sports,s1,s2,s3\ngag,g1,g2\nfantasy,f1,f2,f3,f4";
+		//String data = "sports,s1,s2,s3\ngag,g1,g2\nfantasy,f1,f2,f3";
+		String data = "sports,s1,s2,s3,s4\ngag,g1,g2\nfantasy,f1,f2,f3,f4,f5";
 		return data;
 	}
 

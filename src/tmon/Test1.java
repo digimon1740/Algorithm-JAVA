@@ -37,14 +37,15 @@ public class Test1 {
 
 		List<Integer> saved = new ArrayList<>();
 		List<Stack<Integer>> separatedElements = new ArrayList<>();
-		for (int i = 0; i < elements.size(); i++) {
-			int num = elements.get(i);
+
+		elements.stream().forEach(element -> {
+			int num = element;
 			if (num >= MAX_SIZE) { // 입력된 값이 20보다 크거나 같다면
 				Stack stack = new Stack();
 				stack.push(num);
 				separatedElements.add(stack);
 				saved.clear();
-				continue;
+				return;
 			}
 			// 저장된 값의 토탈을 구한다.
 			int savedSum = saved.stream().mapToInt(Integer::intValue).sum();
@@ -56,7 +57,7 @@ public class Test1 {
 				saved.clear();
 			}
 			saved.add(num);
-		}
+		});
 		Stack stack = new Stack();
 		for (int i = 0; i < saved.size(); i++) {
 			stack.push(saved.get(i));

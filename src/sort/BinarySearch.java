@@ -2,26 +2,31 @@ package sort;
 
 public class BinarySearch {
 
-	public int search(int[] arr, int target) {
+	int sum(int n) {
+		if (n < 2) {
+			return n;
+		}
+		return n + sum(n - 1);
+	}
+
+	int search(int[] arr, int target) {
 		int first = 0;
 		int last = arr.length;
-		int mid;
+		int mid = 0;
 
 		while (first <= last) {
 			mid = (first + last) / 2;
 			if (target == arr[mid]) {
 				return mid;
 			} else {
-				if (target < arr[mid])
+				if (target < arr[mid]) {
 					last = mid - 1;
-				else
+				} else {
 					first = mid + 1;
+				}
 			}
-			// if target is not existed,
-			// not occur reversal of the first and last
 		}
 		return -1;
-		// when target is not existed
 	}
 
 	public static void main(String[] args) {

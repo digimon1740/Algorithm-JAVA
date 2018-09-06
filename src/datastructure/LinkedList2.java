@@ -96,7 +96,7 @@ public class LinkedList2 {
 	}
 
 	public Object removeLast() {
-		return remove(size -1);
+		return remove(size - 1);
 	}
 
 	public Object get(int i) {
@@ -107,4 +107,5 @@ public class LinkedList2 {
 	public int size() {
 		return this.size;
 	}
+
 }
